@@ -1,0 +1,12 @@
+declare module '*.vue' {
+    import type { DefineComponent } from 'vue'
+	const component: DefineComponent<{}, {}, any>
+	export default component
+}
+
+interface Window{
+	_INIT_PROPS_
+}
+
+declare var window:Window & typeof globalThis
+
