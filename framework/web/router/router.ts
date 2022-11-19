@@ -1,6 +1,6 @@
 
 import { createRouter as _createRouter, createWebHistory, createMemoryHistory } from "vue-router"
-import routers from "@src/router/webRouter/router"
+import routers from "@router/webRouter/router"
 
 export default function createRouter(isSever?: boolean) {
     return _createRouter({

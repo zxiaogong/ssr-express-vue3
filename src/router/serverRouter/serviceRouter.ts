@@ -1,10 +1,10 @@
 
-import { RouterType, RequsetMode } from "@framework/server/router/types"
+import { RouterType } from "@framework/server/router/types"
 
 const routerList: RouterType[] = [
     {
         url: '/index',
-        service: import('@src/server/service/index') as unknown as RouterType['service']
+        service: import('@server/service/index') as unknown as RouterType['service']
     }
 ]
   

@@ -1,6 +1,6 @@
 {
   "name": "ssr-express-vue3",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "基于vite插件搭建的vue3服务端渲染项目",
   "author": "zxiaogong",
   "scripts": {
@@ -13,7 +13,9 @@
   "imports": {},
   "_moduleAliases": {
     "@framework": "framework",
-    "@src": "src"
+    "@web": "src/web",
+    "@server": "src/server",
+    "@router": "src/router"
   },
   "nodemonConfig": {
     "restartable": "rs",
@@ -39,6 +41,7 @@
     "@vitejs/plugin-vue": "^3.1.0",
     "@vitejs/plugin-vue-jsx": "^2.0.1",
     "axios": "^1.1.2",
+    "element-plus": "^2.2.22",
     "express": "^4.18.1",
     "module-alias": "^2.2.2",
     "nodemon": "^2.0.20",

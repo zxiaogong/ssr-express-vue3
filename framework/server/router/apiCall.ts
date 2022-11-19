@@ -1,6 +1,6 @@
 import routeScreenr from "@framework/server/router/routeFilter"
 import { RequsetMode } from "@framework/server/router/types"
-import apiRouter from "@src/router/serverRouter/apiRouter"
+import apiRouter from "@router/serverRouter/apiRouter"
 
 export default async function apiCall(url: string, mode: RequsetMode, query?: { [parm: string]: any }) {
     const apiUrl = url.split('/_api')

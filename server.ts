@@ -42,7 +42,7 @@ async function createServer() {
             )
             let initData = await serviceCall(url, RequsetMode.GET, req.query)
 
-            const { render } = await vite.ssrLoadModule('/framework/web/entry-server.ts')
+            const { render } = await vite.ssrLoadModule('/framework/entry/entry-server.ts')
 
             const appHtml = await render({
                 url,

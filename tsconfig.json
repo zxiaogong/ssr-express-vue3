@@ -17,8 +17,17 @@
       "@framework/*": [
         "./framework/*"
       ],
-      "@src/*": [
-        "./src/*"
+      "@web/*": [
+        "./src/web/*"
+      ],
+      "@server/*": [
+        "./src/server/*"
+      ],
+      "@router/*": [
+        "./src/router/*"
+      ],
+      "@apiCall/*": [
+        "./src/web/common/apiCall/*"
       ],
     },
   },

@@ -12,8 +12,9 @@ export default defineConfig({
   resolve: {
     /**设置别名 */
     alias: {
-      '@src': path.resolve(__dirname, './src'),
-      '@requestApi': path.resolve(__dirname, './src/web/common/uitl/requestApi.ts')
+      '@web': path.resolve(__dirname, './src/web'),
+      '@router': path.resolve(__dirname, './src/router'),
+      '@apiCall': path.resolve(__dirname, './src/web/common/apiCall')
     }
   },
 })
