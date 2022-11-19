@@ -22,3 +22,13 @@ src/server 服务端
 
 src/web    前端
 
+## 注：
+ #### 1.别名引入对应的文件目录
+
+ ```
+ @web -------------- src/web
+ @server ----------- src/server
+ @framework -------- framework
+ @router ----------- src/router
+ @apiCall ---------- src/web/common/apiCall
+ ```

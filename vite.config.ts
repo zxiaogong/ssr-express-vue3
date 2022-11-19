@@ -12,6 +12,8 @@ export default defineConfig({
   resolve: {
     /**设置别名 */
     alias: {
+      '@framework': path.resolve(__dirname, './framework'),
+      '@server': path.resolve(__dirname, './src/server'),
       '@web': path.resolve(__dirname, './src/web'),
       '@router': path.resolve(__dirname, './src/router'),
       '@apiCall': path.resolve(__dirname, './src/web/common/apiCall')

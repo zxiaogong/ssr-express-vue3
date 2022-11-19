@@ -1,4 +1,5 @@
-require('module-alias/register')
+import moduleAlias from "module-alias/register"
+moduleAlias
 import fs from 'fs'
 import path from 'path'
 import express from 'express'
