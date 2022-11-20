@@ -4,9 +4,10 @@
   "description": "基于vite插件搭建的vue3服务端渲染项目",
   "author": "zxiaogong",
   "scripts": {
-    "dev": "nodemon --exec ts-node server.ts",
+    "dev": "nodemon --exec ts-node server",
     "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build --outDir dist/server --ssr framework/entry/entry-server.ts",
+    "build:server": "vite build --outDir dist/server --ssr server.ts",
+    "app": "node dist/app/server.js",
     "build:app": "vite build --outDir dist/app --ssr server.ts"
   },
   "keywords": [],

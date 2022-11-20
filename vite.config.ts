@@ -19,4 +19,5 @@ export default defineConfig({
       '@apiCall': path.resolve(__dirname, './src/web/common/apiCall')
     }
   },
+    base: "./",
 })
