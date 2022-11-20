@@ -9,7 +9,7 @@ import serviceCall from '@framework/server/router/serviceCall'
 import apiCall from '@framework/server/router/apiCall'
 import { RequsetMode } from '@framework/server/router/types'
 import bodyParser from "body-parser"
-const dirname = process.env.NODE_ENV==="development" ? __dirname : path.resolve()
+const dirname = process.env.NODE_ENV === "development" ? __dirname : path.resolve()
 const app = express()
 async function createServer() {
     const vite = await createServerVite({
@@ -18,17 +18,17 @@ async function createServer() {
     // 使用 vite 的 Connect 实例作为中间件
     app.use(vite.middlewares)
     /**第三方插件，接收post数据 */
-    app.use(bodyParser.urlencoded({ extended: false }))
+    app.use(bodyParser.json())
 
-    app.use('*', async (req, res) => {
+    app.get('*', async (req, res) => {
         let url = req.originalUrl
         try {
             if (url.indexOf('/_api/') === 0) {
                 let query = req.query
                 let mode = RequsetMode.GET
-                if (JSON.stringify(req.body) !== '{}') {
-                    query = req.body
-                    mode = RequsetMode.POST
+                const firstParameter = url.split("?")[1]?.split("=")[0]
+                if(firstParameter&&query[firstParameter]){
+                    url = url.split(`?${firstParameter}`)[0]
                 }
                 const response = await apiCall(url, mode, query || {})
                 res.send(response)
@@ -66,6 +66,17 @@ async function createServer() {
             console.error(e)
             res.status(500).end(e.message)
         }
+    })
+    app.post("*", async (req, res) => {
+        let url = req.originalUrl
+        if (url.indexOf('/_api/') === 0) {
+            let body = req.body
+            let mode = RequsetMode.POST
+            const response = await apiCall(url, mode, body || {})
+            res.send(response)
+            return
+        }
+        res.send({ msg: "非法接口" })
     })
 
     app.listen(8888, () => {

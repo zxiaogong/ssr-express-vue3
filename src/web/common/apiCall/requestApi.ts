@@ -5,7 +5,14 @@ export async function get({
     url,
     params
 }): Promise<any> {
-    const axiosData = await axios.get(`/_api/${url}`, params)
+    let paramsSrt = ""
+    for (let key in params) {
+        paramsSrt += `${key}=${params[key]}`
+    }
+    if (paramsSrt) {
+        paramsSrt = "?" + paramsSrt
+    }
+    const axiosData = await axios.get(`/_api/${url}${paramsSrt}`)
     const apiData = filterRequestData(axiosData)
     return apiData
 }
