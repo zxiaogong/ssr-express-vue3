@@ -14,9 +14,12 @@
 ```bash
   yarn run build:server
 ```
+```bash
+  yarn run build:app
+```
 ```
   运行打包后的代码
-  yarn run server
+  yarn run app
 ```
 
 ## 附录

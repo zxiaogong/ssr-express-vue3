@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "nodemon --exec ts-node server",
     "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build --outDir dist/server --ssr server.ts",
-    "server": "node dist/server/server.mjs"
+    "build:server": "vite build --outDir dist/server --ssr framework/entry/entry-server.ts",
+    "build:app": "vite build --outDir dist/app --ssr server.ts",
+    "app": "node dist/app/server.mjs"
   },
   "keywords": [],
   "license": "ISC",

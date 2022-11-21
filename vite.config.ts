@@ -19,5 +19,9 @@ export default defineConfig({
       '@apiCall': path.resolve(__dirname, './src/web/common/apiCall')
     }
   },
+  /**
+   * 打包后在 dist/client/index.html 中，引入静态文件路径增加 /dist/client
+   * 不能设置/dist/client，否则会出现访问不到静态资源（暂时排查不出问题）
+   *  */
     base: "./",
 })

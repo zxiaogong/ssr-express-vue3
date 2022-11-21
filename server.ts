@@ -9,7 +9,8 @@ import serviceCall from '@framework/server/router/serviceCall'
 import apiCall from '@framework/server/router/apiCall'
 import { RequsetMode } from '@framework/server/router/types'
 import bodyParser from "body-parser"
-const dirname = process.env.NODE_ENV === "development" ? __dirname : path.resolve()
+const NODE_ENV= process.env.NODE_ENV === "development"
+const dirname = NODE_ENV ? __dirname : path.resolve()
 const app = express()
 async function createServer() {
     const vite = await createServerVite({
@@ -37,12 +38,12 @@ async function createServer() {
 
             // 1. 读取 index.html
             let template = fs.readFileSync(
-                path.resolve(dirname, './index.html'),
+                path.resolve(dirname, NODE_ENV?'./index.html':"./dist/client/index.html"),
                 'utf-8'
             )
             let initData = await serviceCall(url, RequsetMode.GET, req.query)
 
-            const { render } = await vite.ssrLoadModule('/framework/entry/entry-server.ts')
+            const { render } = await vite.ssrLoadModule(NODE_ENV ? '/framework/entry/entry-server.ts' : "/dist/server/entry-server.mjs")
 
             const appHtml = await render({
                 url,
