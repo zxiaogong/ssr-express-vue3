@@ -37,4 +37,11 @@ src/web    前端
  @framework -------- framework
  @router ----------- src/router
  @apiCall ---------- src/web/common/apiCall
+ 
+ ```
+
+ #### 其他
+ ```
+该分支封装了连接mysql功能，不同分支对应不同功能。
+
  ```

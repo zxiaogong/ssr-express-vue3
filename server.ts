@@ -80,8 +80,8 @@ async function createServer() {
         res.send({ msg: "非法接口" })
     })
 
-    app.listen(8888, () => {
-        console.log('http://localhost:8888/index');
+    app.listen(9000, () => {
+        console.log('http://localhost:9000/index');
     })
 }
 

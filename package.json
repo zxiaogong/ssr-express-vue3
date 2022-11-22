@@ -1,6 +1,6 @@
 {
   "name": "ssr-express-vue3",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "基于vite插件搭建的vue3服务端渲染项目",
   "author": "zxiaogong",
   "scripts": {
@@ -40,6 +40,7 @@
     "axios": "^1.1.2",
     "element-plus": "^2.2.22",
     "express": "^4.18.1",
+    "mysql": "^2.18.1",
     "vue": "^3.2.39",
     "vue-router": "^4.1.5"
   },

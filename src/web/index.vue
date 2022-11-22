@@ -1,6 +1,7 @@
 <template>
   <div class="test-title" @click="setTitle()">{{ title }}</div>
   <div class="test-title">{{ props.msg }}</div>
+  <div class="test-title">{{ props.user_info.user_name }}</div>
   <el-button @click="request" type="primary"> 发送GET请求 </el-button>
   <el-button @click="requestPost" type="primary"> 发送POST请求 </el-button>
 </template>
@@ -9,7 +10,17 @@ import { ref, defineProps } from "vue";
 import { ElMessage } from "element-plus";
 import requestApi from "@apiCall/requestApi";
 const props = defineProps({
-  msg: String
+  msg: {
+    default:"",
+    type:String
+  },
+  user_info:{
+    default:{
+      user_id:0,
+      user_name:""
+    },
+    type:Object
+  }
 })
 const title = ref("hello");
 const setTitle = () => {
