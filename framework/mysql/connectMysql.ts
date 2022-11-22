@@ -24,21 +24,21 @@ const useMysql = (sql): Promise<{
   data?: any
 }> => {
   return new Promise((res, rej) => {
-    let sqlArr = [];
-    //执行sql语句
-    sqlContent(sql, sqlArr, (err, data) => {
-      if (err) {
-        rej({
-          state: false,
-          err
-        })
-      } else {
-        res({
-          state: true,
-          data,
-        })
-      }
-    })
+      let sqlArr = [];
+      //执行sql语句
+      sqlContent(sql, sqlArr, (err, data) => {
+        if (err) {
+          rej({
+            state: false,
+            err
+          })
+        } else {
+          res({
+            state: true,
+            data,
+          })
+        }
+      })
   })
 
 }

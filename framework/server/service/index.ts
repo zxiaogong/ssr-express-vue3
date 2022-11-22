@@ -1,5 +1,6 @@
 
 import useMysql from "@framework/mysql/connectMysql"
+import splicingSql from "@framework/server/util/splicingSql"
 
 
 interface QuerySqlTypes {
@@ -45,13 +46,8 @@ class Service {
                 console.error("缺少表名")
                 return {}
             }
-            const value = sql.condition
-            let condition = ""
-            for (let key in value) {
-                condition = `${key}=${value[key]}`
-                break
-            }
-            const sqlData = await useMysql(`select * from ${sql.table_name} ${condition ? 'where ' + condition : ''}`)
+            const condition = splicingSql(sql.condition)
+            const sqlData = await useMysql(`select * from ${sql.table_name} ${condition.length ? 'where ' + condition.join(" and ") : ''}`)
             if (sqlData.state) {
                 return sqlData.data
             } else {
@@ -68,14 +64,19 @@ class Service {
                 return false
             }
             for (let key in value) {
-                keys.push(key)
-                values.push(value[key])
+                keys.push(`${key}`)
+                if (typeof value[key] === 'string') {
+                    values.push(`'${value[key]}'`)
+                } else {
+                    values.push(value[key])
+                }
+
             }
             if (!keys.length || !values.length) {
                 console.error("缺少要添加的数据")
                 return false
             }
-            const sqlData = await useMysql(`insert into ${sql.table_name}(${keys.join(",")}) values(${values.join(",")})`)
+            const sqlData = await useMysql(`insert into ${sql.table_name} (${keys.join(", ")}) values (${values.join(", ")})`)
             return sqlData.state
         }
 
@@ -84,17 +85,13 @@ class Service {
                 console.error("缺少表名")
                 return false
             }
+            const condition = splicingSql(sql.condition)
             const value = sql.condition
-            let condition = ""
-            for (let key in value) {
-                condition = `${key}=${value[key]}`
-                break
-            }
-            if (!condition) {
+            if (!condition.length) {
                 console.error("缺少条件")
                 return false
             }
-            const sqlData = await useMysql(`delete from ${sql.table_name} where ${condition}`)
+            const sqlData = await useMysql(`delete from ${sql.table_name} where ${condition.join(" and ")}`)
             return sqlData.state
         }
 
@@ -103,16 +100,8 @@ class Service {
                 console.error("缺少表名")
                 return false
             }
-            const value = sql.value
-            let content = ""
-            for (let key in value) {
-                content += `${key}=${value[key]}`
-            }
-            let condition = ""
-            for (let key2 in sql.condition) {
-                condition = `${key2}=${sql.condition[key2]}`
-                break
-            }
+            const content = splicingSql(sql.value)
+            const condition = splicingSql(sql.condition)
             if (!content) {
                 console.error("缺少数据")
                 return false
@@ -121,7 +110,7 @@ class Service {
                 console.error("缺少条件")
                 return false
             }
-            const sqlData = await useMysql(`update from ${sql.table_name} set ${content} where ${condition}`)
+            const sqlData = await useMysql(`update ${sql.table_name} set ${content.join(",")} where ${condition.join(" or ")}`)
             return sqlData.state
         }
 

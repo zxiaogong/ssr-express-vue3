@@ -8,13 +8,12 @@ class Index extends Service {
          */
         const user_info = await this.mysql().querySql({
             table_name: "user_list",
-            condition: {
-                user_id: 10000,
-            }
         })
+        
+
         return {
             msg: `test data ${Math.floor(Math.random() * 10 + 1)}`,
-            user_info: user_info[0]
+            user_info: user_info
         }
     }
 }
