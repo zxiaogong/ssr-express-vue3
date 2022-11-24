@@ -1,4 +1,6 @@
-const sqlConfig = {
+const config: { [pname: string]: any } = {}
+
+config['mysql'] = {
   host: 'localhost',
   port: '3306',
   user: 'root',
@@ -6,6 +8,4 @@ const sqlConfig = {
   database: 'goods_online' //数据库名称
 }
 
-export {
-  sqlConfig
-}
+export default config

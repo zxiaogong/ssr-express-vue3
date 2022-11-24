@@ -1,8 +1,8 @@
 import mysql from "mysql"
-import { sqlConfig } from "./config"
+import config from "@framework/config/config"
 //数据库连接池
 const sqlContent = (sql, sqlArr, callBack): void => {
-  const pool = mysql.createPool(sqlConfig)
+  const pool = mysql.createPool(config.mysql)
   pool.getConnection((err, conn) => {
     if (err) {
       console.error("数据库连接失败: ", err)
@@ -24,21 +24,21 @@ const useMysql = (sql): Promise<{
   data?: any
 }> => {
   return new Promise((res, rej) => {
-      let sqlArr = [];
-      //执行sql语句
-      sqlContent(sql, sqlArr, (err, data) => {
-        if (err) {
-          rej({
-            state: false,
-            err
-          })
-        } else {
-          res({
-            state: true,
-            data,
-          })
-        }
-      })
+    let sqlArr = [];
+    //执行sql语句
+    sqlContent(sql, sqlArr, (err, data) => {
+      if (err) {
+        rej({
+          state: false,
+          err
+        })
+      } else {
+        res({
+          state: true,
+          data,
+        })
+      }
+    })
   })
 
 }
