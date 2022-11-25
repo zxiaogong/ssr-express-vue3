@@ -12,7 +12,12 @@ class Index extends Service {
         
 
         return {
-            msg: `test data ${Math.floor(Math.random() * 10 + 1)}`,
+            pageHead:{
+                title:'测试标题',
+                keywords:'测试keywords',
+                description:'测试description',
+            },
+            msg: `test data ${Math.floor(Math.random()*10+1)}`,
             user_info: user_info
         }
     }
