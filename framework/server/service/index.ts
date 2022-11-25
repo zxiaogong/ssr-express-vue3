@@ -2,9 +2,9 @@
 class Service {
     constructor() {
     }
-    get(query?: any): any {
+    async get(query?: any): Promise<any> {
     }
-    post(query?: any): any {
+    async post(query?: any): Promise<any> {
     }
 }
 
