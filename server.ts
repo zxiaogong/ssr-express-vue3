@@ -5,7 +5,6 @@ if (NODE_ENV) {
     require('module-alias/register')
 }
 import fs from 'fs'
-
 import express from 'express'
 import { renderToString } from 'vue/server-renderer'
 import { createServer as createServerVite } from 'vite'
@@ -13,7 +12,6 @@ import serviceCall from '@framework/server/router/serviceCall'
 import apiCall from '@framework/server/router/apiCall'
 import { RequsetMode } from '@framework/server/router/types'
 import bodyParser from "body-parser"
-
 
 const app = express()
 async function createServer() {
@@ -57,6 +55,7 @@ async function createServer() {
                 url,
                 initData
             })
+            const { pageHead = {} } = initData
             renderToString(appHtml).then((html) => {
                 /** 返回渲染后的html */
                 res.status(200)
@@ -65,6 +64,9 @@ async function createServer() {
                         'Cache-Control': 'no-cache',
                     })
                     .send(template
+                        .replace('<!-- /** title **/ -->', pageHead.title || "ssr服务端渲染")
+                        .replace('<!-- /** keywords **/ -->', pageHead.keywords || "")
+                        .replace('<!-- /** description **/ -->', pageHead.description || "")
                         .replace('<!--ssr-outlet-->', html)
                         .replace('/*init data*/', `window._INIT_PROPS_=${JSON.stringify((initData))}`)
                     )
@@ -88,8 +90,8 @@ async function createServer() {
         res.send({ msg: "非法接口" })
     })
 
-    app.listen(8888, () => {
-        console.log('http://localhost:8888/index');
+    app.listen(9000, () => {
+        console.log('http://localhost:9000/index');
     })
 }
 
