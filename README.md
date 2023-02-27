@@ -5,20 +5,13 @@
 
 ## 运行、打包
 
-```bash
+```本地运行
   yarn run dev
 ```
-```bash
-  yarn run build:client
+```构建
+  yarn run build
 ```
-```bash
-  yarn run build:server
-```
-```bash
-  yarn run build:app
-```
-```
-  运行打包后的代码
+```启动
   yarn run app
 ```
 
