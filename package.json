@@ -21,17 +21,15 @@
   },
   "nodemonConfig": {
     "restartable": "rs",
-    "ignore": [
-      ".git",
-      ".svn",
-      "node_modules/**/node_modules",
-      "framework/web/**",
-      "src/router/webRouter/**",
-      "src/web/**"
-    ],
+    "ignore": [],
     "verbose": true,
     "execMap": {},
-    "watch": [],
+    "watch": [
+      "framework/server/*",
+      "framework/entry/entry-client",
+      "src/server/*",
+      "src/router/serverRouter/*"
+    ],
     "env": {
       "NODE_ENV": "development"
     },

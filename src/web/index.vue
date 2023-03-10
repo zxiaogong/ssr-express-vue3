@@ -12,7 +12,7 @@ const props = defineProps({
   msg: String
 })
 const title = ref("hello");
-const setTitle = () => {
+const setTitle = () => { 
   title.value = "啊啊啊";
 };
 const request = async () => {
