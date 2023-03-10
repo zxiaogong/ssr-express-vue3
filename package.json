@@ -8,6 +8,7 @@
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr framework/entry/entry-server.ts",
     "build:app": "vite build --outDir dist/app --ssr server.ts",
+    "build": "yarn run build:app && yarn run build:server && yarn run build:client",
     "app": "node dist/app/server.mjs"
   },
   "keywords": [],
@@ -37,8 +38,8 @@
     "ext": "ts"
   },
   "dependencies": {
+    "ant-design-vue": "^3.3.0-beta.4",
     "axios": "^1.1.2",
-    "element-plus": "^2.2.22",
     "express": "^4.18.1",
     "mysql": "^2.18.1",
     "uuid": "^9.0.0",

@@ -1,24 +1,15 @@
 
-import Service from "@framework/server/service"
+import Service from "@framework/server/service/index"
 class Index extends Service {
     async get(): Promise<any> {
-        /**
-         * this.mysql()....提供了一些简单的操作sql的api
-         * 如果需要更加复杂的操作可以调用 this.mysql().allCustomSql(sql) 进行操作
-         */
-        const user_info = await this.mysql().querySql({
-            table_name: "user_list",
-        })
         
-
         return {
             pageHead:{
                 title:'测试标题',
                 keywords:'测试keywords',
                 description:'测试description',
             },
-            msg: `test data ${Math.floor(Math.random()*10+1)}`,
-            user_info: user_info
+            msg: `test data ${Math.floor(Math.random()*10+1)}`
         }
     }
 }

@@ -1,6 +1,6 @@
 
 import useMysql from "@framework/mysql/connectMysql"
-import splicingSql from "@framework/server/util/splicingSql"
+import splicingSql from "./util/splicingSql"
 
 
 interface QuerySqlTypes {

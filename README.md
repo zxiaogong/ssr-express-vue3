@@ -5,20 +5,13 @@
 
 ## 运行、打包
 
-```bash
+```本地运行
   yarn run dev
 ```
-```bash
-  yarn run build:client
+```构建
+  yarn run build
 ```
-```bash
-  yarn run build:server
-```
-```bash
-  yarn run build:app
-```
-```
-  运行打包后的代码
+```启动
   yarn run app
 ```
 
@@ -44,4 +37,16 @@ src/web    前端
  ```
 该分支封装了连接mysql功能，不同分支对应不同功能。
 
+服务端中使用mysql
  ```
+
+### 服务端使用mysql
+```javascript
+  //项目封装了一些简单的crud操作mysql的方法
+  const user_info = await this.mysql().querySql({
+      table_name: "字段名",
+  })
+  // 如果需要更加复杂的操作可以调用  进行操作
+  this.mysql().allCustomSql('sql语句')
+  
+```
