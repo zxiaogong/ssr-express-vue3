@@ -4,7 +4,7 @@ config['mysql'] = {
   host: 'localhost',
   port: '3306',
   user: 'root',
-  password: 'mac123456',
+  password: '',// 数据库密码
   database: 'eight_part_essay' //数据库名称
 }
 
