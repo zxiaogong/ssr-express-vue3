@@ -7,6 +7,11 @@ const routers: RouteRecordRaw[] = [
         component: () => import('@web/index.vue')
     },
     {
+        name: '编辑uniapp',
+        path: '/edit/editUni',
+        component: () => import('@web//edit/editUni.vue')
+    },
+    {
         name: 'page404',
         path: '/page404',
         component: () => import('@web/page404.vue')

@@ -29,6 +29,9 @@
       "@apiCall/*": [
         "./src/apiCall/*"
       ],
+      "@static/*": [
+        "./src/static/*"
+      ],
     },
   },
   "exclude": [

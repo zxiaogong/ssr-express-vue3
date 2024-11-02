@@ -1,0 +1,12 @@
+.flex{
+    display: flex;
+}
+.f1{
+    flex: 1;
+}
+.f-j-c{
+    justify-content: center;
+}
+.f-a-c{
+    align-items: center;
+}

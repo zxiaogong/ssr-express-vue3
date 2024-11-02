@@ -55,7 +55,7 @@ async function createServer() {
                 url,
                 initData
             })
-            const { pageHead = {} } = initData
+            const { pageMeta = {} } = initData
             renderToString(appHtml).then((html) => {
                 /** 返回渲染后的html */
                 res.status(200)
@@ -64,9 +64,9 @@ async function createServer() {
                         'Cache-Control': 'no-cache',
                     })
                     .send(template
-                        .replace('<!-- /** title **/ -->', pageHead.title || "ssr服务端渲染")
-                        .replace('<!-- /** keywords **/ -->', pageHead.keywords || "")
-                        .replace('<!-- /** description **/ -->', pageHead.description || "")
+                        .replace('<!-- /** title **/ -->', pageMeta.title || "ssr服务端渲染")
+                        .replace('<!-- /** keywords **/ -->', pageMeta.keywords || "")
+                        .replace('<!-- /** description **/ -->', pageMeta.description || "")
                         .replace('<!--ssr-outlet-->', html)
                         .replace('/*init data*/', `window._INIT_PROPS_=${JSON.stringify((initData))}`)
                     )

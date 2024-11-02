@@ -29,5 +29,5 @@ src/web    前端
  @server ----------- src/server
  @framework -------- framework
  @router ----------- src/router
- @apiCall ---------- src/web/common/apiCall
+ @apiCall ---------- src/apiCall
  ```

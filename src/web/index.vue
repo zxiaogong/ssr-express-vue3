@@ -3,11 +3,18 @@
   <div class="test-title">{{ props.msg }}</div>
   <Button @click="request" type="primary">发送GET请求</Button>
   <Button @click="requestPost">发送POST请求</Button>
+  <nut-button type="primary">Primary</nut-button>
+  <nut-button type="info">Info</nut-button>
+  <nut-button type="default">Default</nut-button>
+  <nut-button type="danger">Danger</nut-button>
+  <nut-button type="warning">Warning</nut-button>
+  <nut-button type="success">Success</nut-button>
 </template>
 <script lang="ts" setup>
 import { ref, defineProps } from "vue";
 import { Button, message } from 'ant-design-vue';
 import requestApi from "@apiCall/requestApi";
+// import { Button as Nbutton } from "@nutui/nutui";
 const props = defineProps({
   msg: String
 })

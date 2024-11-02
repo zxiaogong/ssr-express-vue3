@@ -4,7 +4,7 @@ class Index extends Service {
     async get(): Promise<any> {
         
         return {
-            pageHead:{
+            pageMeta:{
                 title:'测试标题',
                 keywords:'测试keywords',
                 description:'测试description',
