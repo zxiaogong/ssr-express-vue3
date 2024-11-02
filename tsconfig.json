@@ -27,7 +27,7 @@
         "./src/router/*"
       ],
       "@apiCall/*": [
-        "./src/web/common/apiCall/*"
+        "./src/apiCall/*"
       ],
     },
   },

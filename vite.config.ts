@@ -17,7 +17,7 @@ export default defineConfig({
       '@server': path.resolve(__dirname, './src/server'),
       '@web': path.resolve(__dirname, './src/web'),
       '@router': path.resolve(__dirname, './src/router'),
-      '@apiCall': path.resolve(__dirname, './src/web/common/apiCall')
+      '@apiCall': path.resolve(__dirname, './src/apiCall')
     }
   },
   base: "./",

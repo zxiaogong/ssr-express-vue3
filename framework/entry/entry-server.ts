@@ -1,7 +1,8 @@
-import { createApp } from '../web/main';
-import createRouter from "../web/router/router"
+
+import {createApp} from "@framework/web/main"
+import createRouter from "@framework/web/router/router"
 /**服务器不会编译css */
-import 'ant-design-vue/dist/antd.css';
+import 'ant-design-vue/dist/reset.css';
 const router = createRouter(true)
 
 export async function render({
